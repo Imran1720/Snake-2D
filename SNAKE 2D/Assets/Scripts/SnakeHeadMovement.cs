@@ -11,6 +11,7 @@ public class SnakeHeadMovement : MonoBehaviour
     [Header("Move Info")]
     public float moveRate;
     public float timer;
+    public int score;
 
     public GameObject snakeBody;
     protected List<Transform> snakePositionsList;
@@ -161,5 +162,10 @@ public class SnakeHeadMovement : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void IncreaseScore(int value)
+    {
+        score += value;
     }
 }
