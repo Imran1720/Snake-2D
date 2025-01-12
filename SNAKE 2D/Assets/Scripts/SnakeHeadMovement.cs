@@ -9,7 +9,7 @@ public class SnakeHeadMovement : MonoBehaviour
     Vector2 direction;
     Vector2 snakeBodyPosition;
     [Header("Move Info")]
-    public float moveRate;
+    public float moveRate, defaultMoveRate;
     public float timer;
     public int score;
 
@@ -25,6 +25,7 @@ public class SnakeHeadMovement : MonoBehaviour
         snakePositionsList.Add(this.transform);
         snakeBodyPosition = Vector2.zero;
         direction = Vector2.up;
+        moveRate = defaultMoveRate;
 
     }
     // Update is called once per frame
@@ -188,5 +189,10 @@ public class SnakeHeadMovement : MonoBehaviour
         {
             score = 0;
         }
+    }
+
+    public void ResetMoveRate()
+    {
+        moveRate = defaultMoveRate;
     }
 }
