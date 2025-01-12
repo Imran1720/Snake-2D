@@ -1,15 +1,21 @@
 using UnityEngine;
 
-public class SpeedBoost : PowerUps
+public class ScoreBooster : PowerUps
 {
+    private static ScoreBooster instance;
+    public static ScoreBooster Instance { get { return instance; } }
+    public int scoreScale, defaultscale, scoreBoost;
 
-    public float boostSpeed;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public override void PowerWearOff()
     {
         if (powerTimer <= 0)
         {
-            powerTimer = powerWearOffTime;
-            SnakeHeadMovement.Instance.ResetMoveRate();
+            scoreScale = defaultscale;
         }
     }
 
@@ -18,7 +24,7 @@ public class SpeedBoost : PowerUps
         if (collision.GetComponent<SnakeHeadMovement>() != null)
         {
             powerTimer = powerWearOffTime;
-            collision.GetComponent<SnakeHeadMovement>().moveRate = boostSpeed;
+            scoreScale = scoreBoost;
             HideItem();
         }
     }

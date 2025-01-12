@@ -14,6 +14,7 @@ public class Food : Interactable
         if (collision.gameObject.GetComponent<SnakeHeadMovement>() != null)
         {
             collision.gameObject.GetComponent<SnakeHeadMovement>().Grow();
+            collision.GetComponent<SnakeHeadMovement>().IncreaseScore(scorePoints);
             timer = respawnTime;
             SpawnItem();
         }

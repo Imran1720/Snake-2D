@@ -37,7 +37,6 @@ public class Interactable : MonoBehaviour
     public bool SpawnChance()
     {
         int randomNumber = Random.Range(0, 100);
-        Debug.Log(randomNumber);
         if (randomNumber <= rarity)
         {
             return true;

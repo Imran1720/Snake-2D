@@ -130,6 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5231981333288740070, guid: 220b7b0b7f6a0a748a78f7f17b8985d8, type: 3}
+      propertyPath: rarity
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5678585629477222254, guid: 220b7b0b7f6a0a748a78f7f17b8985d8, type: 3}
       propertyPath: m_Name
       value: Food
@@ -607,10 +611,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnCoordinate: {x: -10, y: -6}
   maxSpawnCoordinate: {x: 12, y: 6}
-  respawnTime: 5
+  respawnTime: 8
   scorePoints: 0
+  rarity: 50
   isVissible: 0
-  powerWearOffTime: 3
+  powerWearOffTime: 10
   boostSpeed: 0.1
 --- !u!61 &642587263
 BoxCollider2D:
@@ -724,6 +729,113 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &868214551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868214554}
+  - component: {fileID: 868214553}
+  - component: {fileID: 868214552}
+  m_Layer: 0
+  m_Name: ScoreBoost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &868214552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868214551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9cbe279f4fb085449a2d3c774de820c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnCoordinate: {x: -10, y: -6}
+  maxSpawnCoordinate: {x: 12, y: 6}
+  respawnTime: 10
+  scorePoints: 0
+  rarity: 50
+  isVissible: 0
+  powerWearOffTime: 5
+  scoreScale: 0
+  defaultscale: 1
+  scoreBoost: 2
+--- !u!212 &868214553
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868214551}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.8927498, g: 1, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &868214554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868214551}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.092953, y: -0.25575238, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1031002532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -732,6 +844,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2298262769016101043, guid: f4b8269546c37e14481f98117fc1e298, type: 3}
+      propertyPath: rarity
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 2298262769016101043, guid: f4b8269546c37e14481f98117fc1e298, type: 3}
       propertyPath: respawnTime
       value: 12
@@ -793,6 +909,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1050774590905626300, guid: 218e9ec4c3b8d5b40b71d1a199ffea36, type: 3}
+      propertyPath: rarity
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1050774590905626300, guid: 218e9ec4c3b8d5b40b71d1a199ffea36, type: 3}
       propertyPath: respawnTime
       value: 7
@@ -857,3 +977,4 @@ SceneRoots:
   - {fileID: 1396411285}
   - {fileID: 1031002532}
   - {fileID: 642587265}
+  - {fileID: 868214554}

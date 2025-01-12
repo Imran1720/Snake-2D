@@ -7,6 +7,11 @@ public class PowerUps : Interactable
     public float powerWearOffTime;
     protected float powerTimer;
 
+    private void Start()
+    {
+        timer = respawnTime;
+        HideItem();
+    }
 
     protected override void Update()
     {

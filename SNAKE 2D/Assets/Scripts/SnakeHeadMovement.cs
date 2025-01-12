@@ -180,7 +180,7 @@ public class SnakeHeadMovement : MonoBehaviour
     }
     public void IncreaseScore(int value)
     {
-        score += value;
+        score += value * ScoreBooster.Instance.scoreScale;
     }
     public void DecreaseScore(int value)
     {
