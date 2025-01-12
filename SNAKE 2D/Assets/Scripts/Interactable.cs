@@ -13,8 +13,8 @@ public class Interactable : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            SpawnItem();
             timer = respawnTime;
+            SpawnItem();
         }
     }
     public void SpawnItem()

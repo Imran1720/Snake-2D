@@ -58,19 +58,19 @@ public class SnakeHeadMovement : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && !BodyAt(transform.position.x, transform.position.y + 1))
         {
             direction = Vector2.up;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) && !BodyAt(transform.position.x, transform.position.y - 1))
         {
             direction = Vector2.down;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) && !BodyAt(transform.position.x + 1, transform.position.y))
         {
             direction = Vector2.right;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && !BodyAt(transform.position.x - 1, transform.position.y))
         {
             direction = Vector2.left;
         }
@@ -149,4 +149,17 @@ public class SnakeHeadMovement : MonoBehaviour
         }
     }
 
+
+    public bool BodyAt(float x, float y)
+    {
+        Vector3 position = new Vector3(x, y);
+        for (int i = 1; i < snakePositionsList.Count; i++)
+        {
+            if (position == snakePositionsList[i].position)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
