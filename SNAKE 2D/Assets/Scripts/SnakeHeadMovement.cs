@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SnakeHeadMovement : MonoBehaviour
@@ -10,13 +11,17 @@ public class SnakeHeadMovement : MonoBehaviour
     [Header("Move Info")]
     public float moveRate;
     public float timer;
+
+    public GameObject snakeBody;
+    protected List<Transform> snakePositionsList;
     private void Awake()
     {
         instance = this;
     }
     private void Start()
     {
-
+        snakePositionsList = new List<Transform>();
+        snakePositionsList.Add(this.transform);
         snakeBodyPosition = Vector2.zero;
         direction = Vector2.up;
 
@@ -78,6 +83,10 @@ public class SnakeHeadMovement : MonoBehaviour
             timer = moveRate;
             snakeBodyPosition += direction;
             ScreenWrap();
+            for (int i = snakePositionsList.Count - 1; i > 0; i--)
+            {
+                snakePositionsList[i].position = snakePositionsList[i - 1].position;
+            }
             transform.position = new Vector2(snakeBodyPosition.x, snakeBodyPosition.y);
             RotateSprite();
         }
@@ -102,5 +111,42 @@ public class SnakeHeadMovement : MonoBehaviour
         }
     }
 
+
+    public void Grow()
+    {
+        GameObject body = Instantiate(snakeBody, BodyInstantiationPosition(), Quaternion.identity);
+
+        snakePositionsList.Add(body.transform);
+    }
+
+    public Vector2 BodyInstantiationPosition()
+    {
+        if (direction == Vector2.up)
+        {
+            return new Vector2(transform.position.x, transform.position.y - 1);
+        }
+        if (direction == Vector2.down)
+        {
+            return new Vector2(transform.position.x, transform.position.y + 1);
+
+        }
+        if (direction == Vector2.right)
+        {
+            return new Vector2(transform.position.x - 1, transform.position.y);
+        }
+        if (direction == Vector2.left)
+        {
+            return new Vector2(transform.position.x + 1, transform.position.y);
+        }
+        return Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Player Died");
+        }
+    }
 
 }
