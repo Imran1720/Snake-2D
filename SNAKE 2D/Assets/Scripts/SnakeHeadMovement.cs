@@ -86,6 +86,7 @@ public class SnakeHeadMovement : MonoBehaviour
             ScreenWrap();
             for (int i = snakePositionsList.Count - 1; i > 0; i--)
             {
+
                 snakePositionsList[i].position = snakePositionsList[i - 1].position;
             }
             transform.position = new Vector2(snakeBodyPosition.x, snakeBodyPosition.y);
@@ -164,8 +165,28 @@ public class SnakeHeadMovement : MonoBehaviour
         return false;
     }
 
+    public void Shrink()
+    {
+        if (snakePositionsList.Count > 1)
+        {
+            Destroy(snakePositionsList[snakePositionsList.Count - 1].gameObject);
+            snakePositionsList.RemoveAt(snakePositionsList.Count - 1);
+        }
+    }
+    public int GetSnakeLength()
+    {
+        return snakePositionsList.Count;
+    }
     public void IncreaseScore(int value)
     {
         score += value;
+    }
+    public void DecreaseScore(int value)
+    {
+        score -= value;
+        if (score < 0)
+        {
+            score = 0;
+        }
     }
 }
