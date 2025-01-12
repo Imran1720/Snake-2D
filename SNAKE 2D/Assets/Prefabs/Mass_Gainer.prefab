@@ -145,6 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnCoordinate: {x: -10, y: -6}
   maxSpawnCoordinate: {x: 12, y: 6}
-  respawnTime: 15
+  respawnTime: 5
   scorePoints: 20
   lengthToIncrease: 2

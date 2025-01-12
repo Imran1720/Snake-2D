@@ -3,6 +3,7 @@ using UnityEngine;
 public class MassBurner : Interactable
 {
     public int shrinkLength;
+    bool isVissible = false;
     void Start()
     {
         timer = respawnTime;
@@ -11,13 +12,25 @@ public class MassBurner : Interactable
     }
     protected override void Update()
     {
+        if (SnakeHeadMovement.Instance.GetSnakeLength() > 5)
+        {
+            timer -= Time.deltaTime;
+        }
         if (SnakeHeadMovement.Instance.GetSnakeLength() > 5 && timer <= 0)
         {
-            SpawnItem();
+            if (!isVissible)
+            {
+                isVissible = true;
+                SpawnItem();
+            }
+            else
+            {
+                isVissible = false;
+                HideItem();
+            }
             timer = respawnTime;
         }
 
-        timer -= Time.deltaTime;
 
     }
 
