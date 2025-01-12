@@ -5,7 +5,7 @@ public class Interactable : MonoBehaviour
     public Vector2 minSpawnCoordinate;
     public Vector2 maxSpawnCoordinate;
 
-    public float respawnTime;
+    public float respawnTime, fieldTime;
     protected float timer;
     public int scorePoints;
     public float rarity;
@@ -24,13 +24,14 @@ public class Interactable : MonoBehaviour
         {
             float x = Random.Range(minSpawnCoordinate.x, maxSpawnCoordinate.x);
             float y = Random.Range(minSpawnCoordinate.y, maxSpawnCoordinate.y);
-
+            timer = fieldTime;
             this.transform.position = new Vector2(Mathf.Round(x), Mathf.Round(y));
         }
     }
 
     public void HideItem()
     {
+        timer = respawnTime;
         this.transform.position = new Vector2(100, 100);
     }
 

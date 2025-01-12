@@ -18,7 +18,7 @@ public class PowerUps : Interactable
         timer -= Time.deltaTime;
         powerTimer -= Time.deltaTime;
         PowerRespawn();
-        PowerWearOff();
+
     }
 
     public void PowerRespawn()
@@ -35,15 +35,11 @@ public class PowerUps : Interactable
                 isVissible = false;
                 HideItem();
             }
-            timer = respawnTime;
         }
     }
 
     public virtual void PowerWearOff()
     {
-        if ((powerTimer <= 0))
-        {
-            powerTimer = powerWearOffTime;
-        }
+
     }
 }

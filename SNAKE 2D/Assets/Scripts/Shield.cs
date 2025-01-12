@@ -1,9 +1,5 @@
-using UnityEngine;
-
-public class SpeedBoost : PowerUps
+public class Shield : PowerUps
 {
-
-    public float boostSpeed;
 
 
     protected override void Update()
@@ -11,21 +7,25 @@ public class SpeedBoost : PowerUps
         base.Update();
         PowerWearOff();
     }
+
+
     public override void PowerWearOff()
     {
         if (powerTimer <= 0)
         {
             powerTimer = powerWearOffTime;
-            SnakeHeadMovement.Instance.ResetMoveRate();
+
+            SnakeHeadMovement.Instance.DeactivateShield();
+
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         if (collision.GetComponent<SnakeHeadMovement>() != null)
         {
             powerTimer = powerWearOffTime;
-            collision.GetComponent<SnakeHeadMovement>().moveRate = boostSpeed;
+            collision.GetComponent<SnakeHeadMovement>().ActivateShield();
             HideItem();
         }
     }

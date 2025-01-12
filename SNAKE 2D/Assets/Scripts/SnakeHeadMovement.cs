@@ -12,7 +12,9 @@ public class SnakeHeadMovement : MonoBehaviour
     public float moveRate, defaultMoveRate;
     public float timer;
     public int score;
+    public bool immune;
 
+    public GameObject shield;
     public GameObject snakeBody;
     protected List<Transform> snakePositionsList;
     private void Awake()
@@ -87,7 +89,6 @@ public class SnakeHeadMovement : MonoBehaviour
             ScreenWrap();
             for (int i = snakePositionsList.Count - 1; i > 0; i--)
             {
-
                 snakePositionsList[i].position = snakePositionsList[i - 1].position;
             }
             transform.position = new Vector2(snakeBodyPosition.x, snakeBodyPosition.y);
@@ -146,7 +147,7 @@ public class SnakeHeadMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !immune)
         {
             Debug.Log("Player Died");
         }
@@ -194,5 +195,16 @@ public class SnakeHeadMovement : MonoBehaviour
     public void ResetMoveRate()
     {
         moveRate = defaultMoveRate;
+    }
+
+    public void ActivateShield()
+    {
+        immune = true;
+        shield.SetActive(true);
+    }
+    public void DeactivateShield()
+    {
+        immune = false;
+        shield.SetActive(false);
     }
 }

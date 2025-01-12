@@ -11,6 +11,12 @@ public class ScoreBooster : PowerUps
         instance = this;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        PowerWearOff();
+    }
+
     public override void PowerWearOff()
     {
         if (powerTimer <= 0)
