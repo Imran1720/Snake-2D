@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SnakeHeadMovement : MonoBehaviour
@@ -10,13 +11,18 @@ public class SnakeHeadMovement : MonoBehaviour
     [Header("Move Info")]
     public float moveRate;
     public float timer;
+    public int score;
+
+    public GameObject snakeBody;
+    protected List<Transform> snakePositionsList;
     private void Awake()
     {
         instance = this;
     }
     private void Start()
     {
-
+        snakePositionsList = new List<Transform>();
+        snakePositionsList.Add(this.transform);
         snakeBodyPosition = Vector2.zero;
         direction = Vector2.up;
 
@@ -53,19 +59,19 @@ public class SnakeHeadMovement : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && !BodyAt(transform.position.x, transform.position.y + 1))
         {
             direction = Vector2.up;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) && !BodyAt(transform.position.x, transform.position.y - 1))
         {
             direction = Vector2.down;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) && !BodyAt(transform.position.x + 1, transform.position.y))
         {
             direction = Vector2.right;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && !BodyAt(transform.position.x - 1, transform.position.y))
         {
             direction = Vector2.left;
         }
@@ -78,6 +84,11 @@ public class SnakeHeadMovement : MonoBehaviour
             timer = moveRate;
             snakeBodyPosition += direction;
             ScreenWrap();
+            for (int i = snakePositionsList.Count - 1; i > 0; i--)
+            {
+
+                snakePositionsList[i].position = snakePositionsList[i - 1].position;
+            }
             transform.position = new Vector2(snakeBodyPosition.x, snakeBodyPosition.y);
             RotateSprite();
         }
@@ -103,4 +114,79 @@ public class SnakeHeadMovement : MonoBehaviour
     }
 
 
+    public void Grow()
+    {
+        GameObject body = Instantiate(snakeBody, BodyInstantiationPosition(), Quaternion.identity);
+
+        snakePositionsList.Add(body.transform);
+    }
+
+    public Vector2 BodyInstantiationPosition()
+    {
+        if (direction == Vector2.up)
+        {
+            return new Vector2(transform.position.x, transform.position.y - 1);
+        }
+        if (direction == Vector2.down)
+        {
+            return new Vector2(transform.position.x, transform.position.y + 1);
+
+        }
+        if (direction == Vector2.right)
+        {
+            return new Vector2(transform.position.x - 1, transform.position.y);
+        }
+        if (direction == Vector2.left)
+        {
+            return new Vector2(transform.position.x + 1, transform.position.y);
+        }
+        return Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Player Died");
+        }
+    }
+
+
+    public bool BodyAt(float x, float y)
+    {
+        Vector3 position = new Vector3(x, y);
+        for (int i = 1; i < snakePositionsList.Count; i++)
+        {
+            if (position == snakePositionsList[i].position)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void Shrink()
+    {
+        if (snakePositionsList.Count > 1)
+        {
+            Destroy(snakePositionsList[snakePositionsList.Count - 1].gameObject);
+            snakePositionsList.RemoveAt(snakePositionsList.Count - 1);
+        }
+    }
+    public int GetSnakeLength()
+    {
+        return snakePositionsList.Count;
+    }
+    public void IncreaseScore(int value)
+    {
+        score += value;
+    }
+    public void DecreaseScore(int value)
+    {
+        score -= value;
+        if (score < 0)
+        {
+            score = 0;
+        }
+    }
 }
