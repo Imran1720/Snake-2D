@@ -9,10 +9,12 @@ public class SnakeHeadMovement : MonoBehaviour
     Vector2 direction;
     Vector2 snakeBodyPosition;
     [Header("Move Info")]
-    public float moveRate;
+    public float moveRate, defaultMoveRate;
     public float timer;
     public int score;
+    public bool immune;
 
+    public GameObject shield;
     public GameObject snakeBody;
     protected List<Transform> snakePositionsList;
     private void Awake()
@@ -25,6 +27,7 @@ public class SnakeHeadMovement : MonoBehaviour
         snakePositionsList.Add(this.transform);
         snakeBodyPosition = Vector2.zero;
         direction = Vector2.up;
+        moveRate = defaultMoveRate;
 
     }
     // Update is called once per frame
@@ -86,7 +89,6 @@ public class SnakeHeadMovement : MonoBehaviour
             ScreenWrap();
             for (int i = snakePositionsList.Count - 1; i > 0; i--)
             {
-
                 snakePositionsList[i].position = snakePositionsList[i - 1].position;
             }
             transform.position = new Vector2(snakeBodyPosition.x, snakeBodyPosition.y);
@@ -145,7 +147,7 @@ public class SnakeHeadMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !immune)
         {
             Debug.Log("Player Died");
         }
@@ -179,7 +181,7 @@ public class SnakeHeadMovement : MonoBehaviour
     }
     public void IncreaseScore(int value)
     {
-        score += value;
+        score += value * ScoreBooster.Instance.scoreScale;
     }
     public void DecreaseScore(int value)
     {
@@ -188,5 +190,21 @@ public class SnakeHeadMovement : MonoBehaviour
         {
             score = 0;
         }
+    }
+
+    public void ResetMoveRate()
+    {
+        moveRate = defaultMoveRate;
+    }
+
+    public void ActivateShield()
+    {
+        immune = true;
+        shield.SetActive(true);
+    }
+    public void DeactivateShield()
+    {
+        immune = false;
+        shield.SetActive(false);
     }
 }

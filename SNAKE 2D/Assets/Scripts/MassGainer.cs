@@ -25,7 +25,6 @@ public class MassGainer : Interactable
                 isVissible = false;
                 HideItem();
             }
-            timer = respawnTime;
         }
 
         timer -= Time.deltaTime;

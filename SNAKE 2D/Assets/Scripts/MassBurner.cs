@@ -28,7 +28,7 @@ public class MassBurner : Interactable
                 isVissible = false;
                 HideItem();
             }
-            timer = respawnTime;
+
         }
 
 
