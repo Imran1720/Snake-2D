@@ -33,15 +33,26 @@ public class MassGainer : Interactable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<SnakeHeadMovement>() != null)
+        if (collision.GetComponent<Player1>() != null)
         {
             HideItem();
             for (int i = 0; i < lengthToIncrease; i++)
             {
-                collision.GetComponent<SnakeHeadMovement>().Grow();
-                collision.GetComponent<SnakeHeadMovement>().IncreaseScore(scorePoints);
+                collision.GetComponent<Player1>().Grow();
+                collision.GetComponent<Player1>().IncreaseScore(scorePoints);
                 HideItem();
             }
         }
+        if (collision.GetComponent<Player2>() != null)
+        {
+            HideItem();
+            for (int i = 0; i < lengthToIncrease; i++)
+            {
+                collision.GetComponent<Player2>().Grow();
+                collision.GetComponent<Player2>().IncreaseScore(scorePoints);
+                HideItem();
+            }
+        }
+
     }
 }

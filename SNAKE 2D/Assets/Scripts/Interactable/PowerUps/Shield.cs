@@ -14,19 +14,29 @@ public class Shield : PowerUps
         if (powerTimer <= 0)
         {
             powerTimer = powerWearOffTime;
-
-            SnakeHeadMovement.Instance.DeactivateShield();
+            Player1.Instance.DeactivateShield();
+            Player2.Instance.DeactivateShield();
 
         }
     }
 
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (collision.GetComponent<SnakeHeadMovement>() != null)
+        if (collision.GetComponent<Player1>() != null)
         {
             powerTimer = powerWearOffTime;
-            collision.GetComponent<SnakeHeadMovement>().ActivateShield();
+            collision.GetComponent<Player1>().ActivateShield();
+            Player2.Instance.DeactivateShield();
             HideItem();
         }
+
+        if (collision.GetComponent<Player2>() != null)
+        {
+            powerTimer = powerWearOffTime;
+            collision.GetComponent<Player2>().ActivateShield();
+            Player1.Instance.DeactivateShield();
+            HideItem();
+        }
+
     }
 }

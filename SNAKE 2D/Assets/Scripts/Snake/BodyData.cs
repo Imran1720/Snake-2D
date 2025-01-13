@@ -9,7 +9,8 @@ public class BodyData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (snakeHead.GetComponent<SnakeHeadMovement>() != null && snakeHead.GetComponent<SnakeHeadMovement>().immune)
+        if ((snakeHead.GetComponent<Player1>() != null && snakeHead.GetComponent<Player1>().immune) ||
+            (snakeHead.GetComponent<Player2>() != null && snakeHead.GetComponent<Player2>().immune))
         {
             shield.SetActive(true);
         }

@@ -15,7 +15,6 @@ public class LevelButtonAction : MonoBehaviour
 
     public void Action()
     {
-        Debug.Log((int)action);
         switch (action)
         {
             case ButtonActionsList.PauseGame:

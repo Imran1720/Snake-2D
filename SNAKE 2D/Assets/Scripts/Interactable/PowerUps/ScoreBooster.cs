@@ -4,8 +4,8 @@ public class ScoreBooster : PowerUps
 {
     private static ScoreBooster instance;
     public static ScoreBooster Instance { get { return instance; } }
-    public int scoreScale, defaultscale, scoreBoost;
-
+    public int defaultscale, scoreBoost;
+    public int player1ScoreBoost, player2ScoreBoost;
     private void Awake()
     {
         instance = this;
@@ -21,17 +21,25 @@ public class ScoreBooster : PowerUps
     {
         if (powerTimer <= 0)
         {
-            scoreScale = defaultscale;
+            player1ScoreBoost = defaultscale;
+            player2ScoreBoost = defaultscale;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<SnakeHeadMovement>() != null)
+        if (collision.GetComponent<Player1>() != null)
         {
             powerTimer = powerWearOffTime;
-            scoreScale = scoreBoost;
+            player1ScoreBoost = scoreBoost;
             HideItem();
         }
+        if (collision.GetComponent<Player2>() != null)
+        {
+            powerTimer = powerWearOffTime;
+            player2ScoreBoost = scoreBoost;
+            HideItem();
+        }
+
     }
 }

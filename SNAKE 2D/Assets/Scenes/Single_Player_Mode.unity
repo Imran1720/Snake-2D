@@ -256,6 +256,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891325}
   m_CullTransparentMesh: 1
+--- !u!1 &25512486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8429024884259480022, guid: b7ed5b4fd024b464682dbc8f11a2a6d4, type: 3}
+  m_PrefabInstance: {fileID: 853599527948682408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &25512492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25512486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8161c322d324f4aaee357d81fccaa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snakeBodyPosition: {x: -5, y: 5}
+  moveRate: 0.3
+  defaultMoveRate: 0.3
+  timer: 0
+  snakeBody: {fileID: 25918101472470927, guid: faca22c079ebd674c8f06e220ba5fb8c, type: 3}
+  shield: {fileID: 1694254645}
+  immune: 0
+  score: 0
+  powerTimer: 0
 --- !u!1 &273620646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,6 +3352,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669174533}
   m_CullTransparentMesh: 1
+--- !u!1 &1694254645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6063454293621954015, guid: b7ed5b4fd024b464682dbc8f11a2a6d4, type: 3}
+  m_PrefabInstance: {fileID: 853599527948682408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1854325789
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,10 +3484,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snake_Head
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8429024884259480022, guid: b7ed5b4fd024b464682dbc8f11a2a6d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6634328701322081217, guid: b7ed5b4fd024b464682dbc8f11a2a6d4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8429024884259480022, guid: b7ed5b4fd024b464682dbc8f11a2a6d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 25512492}
   m_SourcePrefab: {fileID: 100100000, guid: b7ed5b4fd024b464682dbc8f11a2a6d4, type: 3}
 --- !u!1001 &2416762401366895956
 PrefabInstance:
@@ -3526,6 +3565,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShieldPowerUp
       objectReference: {fileID: 0}
+    - target: {fileID: 5788516449636290720, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
+      propertyPath: fieldTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788516449636290720, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
+      propertyPath: respawnTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3554,6 +3601,22 @@ PrefabInstance:
     - target: {fileID: 4649755714739441877, guid: e0ea60fd8781a624abc710e6054782e7, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288089508707278738, guid: e0ea60fd8781a624abc710e6054782e7, type: 3}
+      propertyPath: fieldTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288089508707278738, guid: e0ea60fd8781a624abc710e6054782e7, type: 3}
+      propertyPath: respawnTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288089508707278738, guid: e0ea60fd8781a624abc710e6054782e7, type: 3}
+      propertyPath: player1ScoreBoost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288089508707278738, guid: e0ea60fd8781a624abc710e6054782e7, type: 3}
+      propertyPath: player2ScoreBoost
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6334851156566447505, guid: e0ea60fd8781a624abc710e6054782e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3612,6 +3675,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2638221152413178860, guid: 0a85fd10c126d5c498b77cbdb579df93, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.0705882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638221152413178860, guid: 0a85fd10c126d5c498b77cbdb579df93, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.5058824
+      objectReference: {fileID: 0}
     - target: {fileID: 3042718675526337007, guid: 0a85fd10c126d5c498b77cbdb579df93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.89
@@ -3667,6 +3738,14 @@ PrefabInstance:
     - target: {fileID: 3805216926570143082, guid: 0a85fd10c126d5c498b77cbdb579df93, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065309428937908920, guid: 0a85fd10c126d5c498b77cbdb579df93, type: 3}
+      propertyPath: fieldTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065309428937908920, guid: 0a85fd10c126d5c498b77cbdb579df93, type: 3}
+      propertyPath: respawnTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7867499798693987453, guid: 0a85fd10c126d5c498b77cbdb579df93, type: 3}
       propertyPath: m_Name
