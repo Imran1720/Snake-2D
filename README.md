@@ -59,14 +59,14 @@ A classic Snake game built in Unity, featuring additional mechanics like power-u
 
 ## How to Play:
 <ol>
-  <li>Single Player Mode:
+  <li><b>Single Player Mode:</b>
     <ul>
       <li>Use <b>W</b>,<b>A</b>,<b>S</b>,<b>D</b> to control the snake.</li>
          <li>Eat Mass Gainer foods to grow longer and increase your score.</li>
          <li>Avoid eating yourself or the Mass Burner foods unless strategically shrinking.</li>
     </ul>
   </li>
-   <li>Co-Op Mode:
+   <li><b>Co-Op Mode:</b>
     <ul>
       <li>Player 1 uses <b>W</b>,<b>A</b>,<b>S</b>,<b>D</b> to control their snake. </li>
          <li>Player 2 uses arrow keys (⬆️ ⬇️ ⬅️➡️) to control theirs.</li>
