@@ -8,7 +8,7 @@ A classic Snake game built in Unity, featuring additional mechanics like power-u
 <li><b>Self-Collision:</b> The snake dies upon biting itself.</li>
 </ol>
 
-## Power-Ups:
+### Power-Ups:
 <ol>
 <li><b>Shield:</b> Protects the snake from death for a short time.</li>
 <li><b>Score Boost:</b> Doubles the score gained when active.</li>
@@ -55,4 +55,22 @@ A classic Snake game built in Unity, featuring additional mechanics like power-u
 <ol>
 <li><b>Basic UI:</b> Includes death screens, win conditions, score displays, and lobby screens.</li>
 <li><b>Game Controls:</b> Pause/Resume, Restart, and Quit buttons are implemented.</li>
+</ol>
+
+## How to Play:
+<ol>
+  <li>Single Player Mode:
+    <ul>
+      <li>Use <b>W</b>,<b>A</b>,<b>S</b>,<b>D</b> to control the snake.</li>
+         <li>Eat Mass Gainer foods to grow longer and increase your score.</li>
+         <li>Avoid eating yourself or the Mass Burner foods unless strategically shrinking.</li>
+    </ul>
+  </li>
+   <li>Co-Op Mode:
+    <ul>
+      <li>Player 1 uses <b>W</b>,<b>A</b>,<b>S</b>,<b>D</b> to control their snake. </li>
+         <li>Player 2 uses arrow keys (⬆️ ⬇️ ⬅️➡️) to control theirs.</li>
+         <li>If one snake bites another, the game ends.</li>
+    </ul>
+  </li>
 </ol>
