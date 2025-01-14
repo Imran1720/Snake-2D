@@ -19,6 +19,7 @@ public class Player1 : SnakeMovement
         PlayerInput();
     }
 
+    //Snake Movement using W,A,S,D
     private void PlayerInput()
     {
         if (Input.GetKeyDown(KeyCode.W) && !BodyAt(transform.position.x, transform.position.y + 1))
@@ -39,11 +40,13 @@ public class Player1 : SnakeMovement
         }
     }
 
+    //Increasing player1 Score
     public override void IncreaseScore(int value)
     {
         score += value * ScoreBooster.Instance.player1ScoreBoost;
     }
 
+    //Game Lose Condition
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<Player2>() != null)

@@ -34,7 +34,6 @@ public class BodyData : MonoBehaviour
                 else if (this.snakeHead != collision.GetComponent<Player2>().gameObject && !Player1.Instance.immune)
                 {
                     CoopGameManager.instance.GameOver("Player2");
-                    //Debug.Log("PLayer 2 detected!!");
                 }
             }
             if (collision.GetComponent<Player1>())
@@ -46,7 +45,6 @@ public class BodyData : MonoBehaviour
                 else if (this.snakeHead != collision.GetComponent<Player1>().gameObject && !Player2.Instance.immune)
                 {
                     CoopGameManager.instance.GameOver("Player1");
-                    //Debug.Log("PLayer 2 detected!!");
                 }
             }
         }
