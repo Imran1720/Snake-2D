@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log(Player2.Instance == null);
 
         Time.timeScale = 1.0f;
     }

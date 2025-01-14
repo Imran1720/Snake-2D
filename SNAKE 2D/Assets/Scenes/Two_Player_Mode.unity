@@ -3771,22 +3771,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1735935918}
     m_Modifications:
-    - target: {fileID: 2568858754537386265, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -7314038943984137149, guid: 888bc6c3bee4a644894eb075d8d389f5, type: 3}
-    - target: {fileID: 2568858754537386265, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2568858754537386265, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2568858754537386265, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4114707633427594864, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3830,14 +3814,6 @@ PrefabInstance:
     - target: {fileID: 4518254795733450631, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
       propertyPath: m_Name
       value: ShieldPowerUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5788516449636290720, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
-      propertyPath: fieldTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5788516449636290720, guid: fff91d4531736d64e8b978f27a9ec0af, type: 3}
-      propertyPath: respawnTime
-      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

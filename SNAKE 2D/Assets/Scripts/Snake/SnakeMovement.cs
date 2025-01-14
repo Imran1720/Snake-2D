@@ -28,7 +28,7 @@ public class SnakeMovement : MonoBehaviour
         snakePositionsList = new List<Transform>();
         snakePositionsList.Add(this.transform);
 
-        direction = Vector2.up;
+
         moveRate = defaultMoveRate;
 
     }

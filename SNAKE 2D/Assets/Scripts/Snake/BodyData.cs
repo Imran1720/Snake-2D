@@ -25,17 +25,28 @@ public class BodyData : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
+            if (collision.GetComponent<Player2>())
             {
-                if (collision.GetComponent<Player2>() && !Player1.Instance.immune)
+                if (this.snakeHead == collision.GetComponent<Player2>().gameObject && !collision.GetComponent<Player2>().immune)
+                {
+                    CoopGameManager.instance.GameOver("Player1");
+                }
+                else if (this.snakeHead != collision.GetComponent<Player2>().gameObject && !Player1.Instance.immune)
                 {
                     CoopGameManager.instance.GameOver("Player2");
                     //Debug.Log("PLayer 2 detected!!");
                 }
-                if (collision.GetComponent<Player1>() && !Player2.Instance.immune)
+            }
+            if (collision.GetComponent<Player1>())
+            {
+                if (this.snakeHead == collision.GetComponent<Player1>().gameObject && !collision.GetComponent<Player1>().immune)
                 {
-
+                    CoopGameManager.instance.GameOver("Player2");
+                }
+                else if (this.snakeHead != collision.GetComponent<Player1>().gameObject && !Player2.Instance.immune)
+                {
                     CoopGameManager.instance.GameOver("Player1");
-                    // Debug.Log("PLayer 1 detected!!");
+                    //Debug.Log("PLayer 2 detected!!");
                 }
             }
         }

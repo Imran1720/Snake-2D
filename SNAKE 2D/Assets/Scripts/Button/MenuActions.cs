@@ -9,7 +9,7 @@ public class MenuActions : MonoBehaviour
     public GameObject lobby, Mode;
     void Start()
     {
-        Back();
+
         quit.onClick.AddListener(Quit);
         play.onClick.AddListener(Play);
         back.onClick.AddListener(Back);
@@ -21,14 +21,15 @@ public class MenuActions : MonoBehaviour
     }
     void Play()
     {
+        SoundManager.instance.PlaySFX(Sounds.ButtonClick);
         lobby.SetActive(false);
         Mode.SetActive(true);
     }
 
     void Back()
     {
+        SoundManager.instance.PlaySFX(Sounds.ButtonClick);
         lobby.SetActive(true);
         Mode.SetActive(false);
-
     }
 }

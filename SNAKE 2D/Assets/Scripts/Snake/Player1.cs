@@ -9,6 +9,7 @@ public class Player1 : SnakeMovement
     private void Awake()
     {
         instance = this;
+        direction = Vector2.up;
     }
 
     protected override void Update()

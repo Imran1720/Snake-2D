@@ -18,15 +18,33 @@ public class LevelButtonAction : MonoBehaviour
         switch (action)
         {
             case ButtonActionsList.PauseGame:
-                GameManager.instance.Pause();
+                SoundManager.instance.PlaySFX(Sounds.ButtonClick);
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.Pause();
+                }
+                else
+                {
+                    CoopGameManager.instance.Pause();
+                }
                 break;
             case ButtonActionsList.Resume:
-                GameManager.instance.ShowHUD();
+                SoundManager.instance.PlaySFX(Sounds.ButtonClick);
+
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.ShowHUD();
+                }
+                else
+                {
+                    CoopGameManager.instance.ShowHUD();
+                }
                 break;
             case ButtonActionsList.Restart:
                 LevelManager.Instance.RestartLevel();
                 break;
             case ButtonActionsList.Menu:
+                SoundManager.instance.PlaySFX(Sounds.ButtonClick);
                 LevelManager.Instance.LoadLevel((int)Levels.Menu);
                 break;
         }

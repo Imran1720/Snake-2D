@@ -33,6 +33,7 @@ public class MassGainer : Interactable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SoundManager.instance.PlaySFX(Sounds.Food);
         if (collision.GetComponent<Player1>() != null)
         {
             HideItem();

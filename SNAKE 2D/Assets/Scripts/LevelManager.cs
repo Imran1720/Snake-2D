@@ -24,17 +24,19 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(int index)
     {
+        SoundManager.instance.PlaySFX(Sounds.ButtonClick);
         SceneManager.LoadScene(index);
     }
 
     public void RestartLevel()
     {
-
+        SoundManager.instance.PlaySFX(Sounds.ButtonClick);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Quit()
     {
+        SoundManager.instance.PlaySFX(Sounds.ButtonClick);
         Application.Quit();
     }
 }

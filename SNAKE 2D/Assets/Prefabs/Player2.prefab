@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0bf1be75bebe44895b247124203305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snakeBodyPosition: {x: 5, y: -5}
+  snakeBodyPosition: {x: 5, y: 0}
   moveRate: 0.2
   defaultMoveRate: 0.2
   timer: 0

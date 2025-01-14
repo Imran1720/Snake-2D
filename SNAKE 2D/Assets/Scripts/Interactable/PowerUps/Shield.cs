@@ -25,6 +25,7 @@ public class Shield : PowerUps
 
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
+        SoundManager.instance.PlaySFX(Sounds.PowerUp);
         if (collision.GetComponent<Player1>() != null)
         {
             powerTimer = powerWearOffTime;

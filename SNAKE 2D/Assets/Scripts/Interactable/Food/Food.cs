@@ -11,6 +11,7 @@ public class Food : Interactable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SoundManager.instance.PlaySFX(Sounds.Food);
         if (collision.gameObject.GetComponent<Player1>() != null)
         {
             collision.gameObject.GetComponent<Player1>().Grow();

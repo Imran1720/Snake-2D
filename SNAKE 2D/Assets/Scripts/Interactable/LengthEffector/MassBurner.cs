@@ -36,6 +36,7 @@ public class MassBurner : Interactable
 
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
+        SoundManager.instance.PlaySFX(Sounds.PowerUp);
         if (collision.GetComponent<Player1>() != null)
         {
             for (int i = 0; i < shrinkLength; i++)
