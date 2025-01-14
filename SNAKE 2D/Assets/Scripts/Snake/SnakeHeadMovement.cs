@@ -119,7 +119,7 @@ public class SnakeHeadMovement : MonoBehaviour
     public void Grow()
     {
         GameObject body = Instantiate(snakeBody, BodyInstantiationPosition(), Quaternion.identity);
-
+        body.GetComponent<BodyData>().snakeHead = this.gameObject;
         snakePositionsList.Add(body.transform);
     }
 
@@ -149,7 +149,13 @@ public class SnakeHeadMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !immune)
         {
-            Debug.Log("Player Died");
+            GameManager.instance.GameOver();
+        }
+        if (collision != null)
+        {
+            GameManager.instance.UpdateScore(score);
+            GameManager.instance.UpdateLength(snakePositionsList.Count);
+
         }
     }
 
@@ -190,6 +196,7 @@ public class SnakeHeadMovement : MonoBehaviour
         {
             score = 0;
         }
+
     }
 
     public void ResetMoveRate()
