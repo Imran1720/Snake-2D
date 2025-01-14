@@ -2,14 +2,11 @@ using UnityEngine.SceneManagement;
 
 public class Shield : PowerUps
 {
-
-
     protected override void Update()
     {
         base.Update();
         PowerWearOff();
     }
-
 
     public override void PowerWearOff()
     {
@@ -19,7 +16,6 @@ public class Shield : PowerUps
             Player1.Instance.DeactivateShield();
             if (SceneManager.GetActiveScene().buildIndex == 2)
                 Player2.Instance.DeactivateShield();
-
         }
     }
 

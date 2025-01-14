@@ -19,7 +19,7 @@ public class Player2 : SnakeMovement
 
     }
 
-
+    //Snake Movement using arrows
     private void PlayerInput()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow) && !BodyAt(transform.position.x, transform.position.y + 1))
@@ -40,6 +40,7 @@ public class Player2 : SnakeMovement
         }
     }
 
+    //Increases score for Player2
     public override void IncreaseScore(int value)
     {
         score += value * ScoreBooster.Instance.player2ScoreBoost;
