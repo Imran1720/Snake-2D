@@ -22,8 +22,6 @@ public class SnakeMovement : MonoBehaviour
     [Header("UI Info")]
     public int score;
 
-    [Header("power-up Info")]
-    public float powerTimer;
 
     private void Start()
     {
@@ -39,7 +37,6 @@ public class SnakeMovement : MonoBehaviour
     protected virtual void Update()
     {
         timer -= Time.deltaTime;
-        powerTimer -= Time.deltaTime;
         MoveSnake();
 
     }

@@ -14,7 +14,14 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        Debug.Log(Player2.Instance == null);
+
         Time.timeScale = 1.0f;
+    }
+    private void Update()
+    {
+        UpdateScore();
+        UpdateLength();
     }
     public void GameOver()
     {
@@ -37,14 +44,15 @@ public class GameManager : MonoBehaviour
         hudPannel.SetActive(true);
     }
 
-    public void UpdateScore(int value)
+    public void UpdateScore()
     {
-        score.text = value.ToString();
+
+        score.text = "" + Player1.Instance.score;
     }
 
-    public void UpdateLength(int value)
+    public void UpdateLength()
     {
-        snakeLength.text = "Snake : " + value;
+        snakeLength.text = "Snake : " + Player1.Instance.GetSnakeLength();
     }
 
 

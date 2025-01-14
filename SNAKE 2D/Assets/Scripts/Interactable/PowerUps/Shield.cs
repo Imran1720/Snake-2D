@@ -1,3 +1,5 @@
+using UnityEngine.SceneManagement;
+
 public class Shield : PowerUps
 {
 
@@ -15,7 +17,8 @@ public class Shield : PowerUps
         {
             powerTimer = powerWearOffTime;
             Player1.Instance.DeactivateShield();
-            Player2.Instance.DeactivateShield();
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+                Player2.Instance.DeactivateShield();
 
         }
     }
@@ -26,7 +29,10 @@ public class Shield : PowerUps
         {
             powerTimer = powerWearOffTime;
             collision.GetComponent<Player1>().ActivateShield();
-            Player2.Instance.DeactivateShield();
+            if (Player2.Instance != null)
+            {
+                Player2.Instance.DeactivateShield();
+            }
             HideItem();
         }
 

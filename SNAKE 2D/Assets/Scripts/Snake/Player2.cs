@@ -23,7 +23,6 @@ public class Player2 : SnakeMovement
     {
         if (Input.GetKeyDown(KeyCode.UpArrow) && !BodyAt(transform.position.x, transform.position.y + 1))
         {
-            Debug.Log("Up arrow");
             direction = Vector2.up;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) && !BodyAt(transform.position.x, transform.position.y - 1))
@@ -44,26 +43,9 @@ public class Player2 : SnakeMovement
     {
         score += value * ScoreBooster.Instance.player2ScoreBoost;
 
-        GameManager.instance.UpdateScore(score);
-        GameManager.instance.UpdateLength(snakePositionsList.Count);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
 
-        if (collision.GetComponent<BodyData>() != null)
-        {
-            if (collision.GetComponent<BodyData>().snakeHead == this.gameObject && !immune)
-            {
-                GameManager.instance.GameOver();
-            }
-            if (collision.GetComponent<BodyData>().snakeHead != this.gameObject && !immune)
-            {
-                Debug.Log("Player1 Lost!!");
-            }
-
-        }
-    }
 
 
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpeedBoost : PowerUps
 {
@@ -18,7 +19,8 @@ public class SpeedBoost : PowerUps
 
             powerTimer = powerWearOffTime;
             Player1.Instance.ResetMoveRate();
-            Player2.Instance.ResetMoveRate();
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+                Player2.Instance.ResetMoveRate();
         }
     }
 
@@ -27,7 +29,10 @@ public class SpeedBoost : PowerUps
         if (collision.GetComponent<Player1>() != null)
         {
             powerTimer = powerWearOffTime;
-            Player2.Instance.ResetMoveRate();
+            if (Player2.Instance != null)
+            {
+                Player2.Instance.ResetMoveRate();
+            }
             collision.GetComponent<Player1>().moveRate = boostSpeed;
             HideItem();
         }

@@ -14,6 +14,7 @@ public class Player1 : SnakeMovement
     protected override void Update()
     {
         base.Update();
+
         PlayerInput();
     }
 
@@ -40,40 +41,20 @@ public class Player1 : SnakeMovement
     public override void IncreaseScore(int value)
     {
         score += value * ScoreBooster.Instance.player1ScoreBoost;
-
-        GameManager.instance.UpdateScore(score);
-        GameManager.instance.UpdateLength(snakePositionsList.Count);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.GetComponent<BodyData>() != null)
-        {
-            if (collision.GetComponent<BodyData>().snakeHead == this.gameObject && !immune)
-            {
-                GameManager.instance.GameOver();
-            }
-            if (collision.GetComponent<BodyData>().snakeHead != this.gameObject && !immune)
-            {
-                Debug.Log("Player2 Lost!!");
-            }
-
-        }
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Player2>() != null &&
-            collision.gameObject.GetComponent<Player2>().GetSnakeLength() > this.GetSnakeLength())
+        if (collision.gameObject.GetComponent<Player2>() != null)
         {
-            Debug.Log("Player2 Win");
-        }
-        else if (collision.gameObject.GetComponent<Player2>() != null &&
-            collision.gameObject.GetComponent<Player2>().GetSnakeLength() < this.GetSnakeLength())
-        {
-            Debug.Log("Player1 Win");
+            if (collision.gameObject.GetComponent<Player2>().GetSnakeLength() > GetSnakeLength())
+            {
+                CoopGameManager.instance.GameOver("Player2");
+            }
+            else
+            {
+                CoopGameManager.instance.GameOver("Player1");
+            }
         }
     }
 }
