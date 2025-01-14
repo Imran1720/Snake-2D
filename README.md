@@ -10,9 +10,9 @@ A classic Snake game built in Unity, featuring additional mechanics like power-u
 
 ### Power-Ups:
 <ol>
-<li><b>Shield:</b> Protects the snake from death for a short time.</li>
-<li><b>Score Boost:</b> Doubles the score gained when active.</li>
-<li><b>Speed Up:</b> Temporarily increases the snake's speed.</li>
+<li><b>Shield:</b> 🛡️ Protects the snake from death for a short time.</li>
+<li><b>Score Boost:</b> 💰 Doubles the score gained when active.</li>
+<li><b>Speed Up:</b> 🚅 Temporarily increases the snake's speed.</li>
 </ol>
 
 ### Cooldown for Power-Ups:
