@@ -12,11 +12,11 @@ public class MassBurner : Interactable
     }
     protected override void Update()
     {
-        if (SnakeHeadMovement.Instance.GetSnakeLength() > 5)
+        if (Player1.Instance.GetSnakeLength() > 5)
         {
             timer -= Time.deltaTime;
         }
-        if (SnakeHeadMovement.Instance.GetSnakeLength() > 5 && timer <= 0)
+        if (Player1.Instance.GetSnakeLength() > 5 && timer <= 0)
         {
             if (!isVissible)
             {
@@ -36,15 +36,26 @@ public class MassBurner : Interactable
 
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (collision.GetComponent<SnakeHeadMovement>() != null)
+        SoundManager.instance.PlaySFX(Sounds.PowerUp);
+        if (collision.GetComponent<Player1>() != null)
         {
             for (int i = 0; i < shrinkLength; i++)
             {
-                collision.GetComponent<SnakeHeadMovement>().Shrink();
-                collision.GetComponent<SnakeHeadMovement>().DecreaseScore(scorePoints);
-
+                collision.GetComponent<Player1>().Shrink();
+                collision.GetComponent<Player1>().DecreaseScore(scorePoints);
                 HideItem();
             }
         }
+
+        if (collision.GetComponent<Player2>() != null)
+        {
+            for (int i = 0; i < shrinkLength; i++)
+            {
+                collision.GetComponent<Player2>().Shrink();
+                collision.GetComponent<Player2>().DecreaseScore(scorePoints);
+                HideItem();
+            }
+        }
+
     }
 }

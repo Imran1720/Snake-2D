@@ -4,7 +4,6 @@ public class Interactable : MonoBehaviour
 {
     public Vector2 minSpawnCoordinate;
     public Vector2 maxSpawnCoordinate;
-
     public float respawnTime, fieldTime;
     protected float timer;
     public int scorePoints;

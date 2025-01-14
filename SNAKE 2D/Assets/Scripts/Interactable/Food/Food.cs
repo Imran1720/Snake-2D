@@ -11,10 +11,19 @@ public class Food : Interactable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<SnakeHeadMovement>() != null)
+        SoundManager.instance.PlaySFX(Sounds.Food);
+        if (collision.gameObject.GetComponent<Player1>() != null)
         {
-            collision.gameObject.GetComponent<SnakeHeadMovement>().Grow();
-            collision.GetComponent<SnakeHeadMovement>().IncreaseScore(scorePoints);
+            collision.gameObject.GetComponent<Player1>().Grow();
+            collision.GetComponent<Player1>().IncreaseScore(scorePoints);
+            timer = respawnTime;
+            SpawnItem();
+        }
+
+        if (collision.gameObject.GetComponent<Player2>() != null)
+        {
+            collision.gameObject.GetComponent<Player2>().Grow();
+            collision.GetComponent<Player2>().IncreaseScore(scorePoints);
             timer = respawnTime;
             SpawnItem();
         }
