@@ -37,9 +37,11 @@ A classic Snake game built in Unity, featuring additional mechanics like power-u
 <ul>
   <dl>
   <dt><li>Each power-up has a customizable cooldown (default is 3 seconds).</li></dt>
-    <dd>Player 1 controls a snake using WASD.</dd>
-     <dd>Player 2 controls another snake using the arrow keys (⬆️ ⬇️ ⬅️➡️).</dd>
-     <dd>If one snake bites another, the bitten snake dies.</dd>
-    <dd>If both snakes heads collide while eating, the snake with the smaller length dies.</dd>
+   <ul>
+    <li><dd>Player 1 controls a snake using WASD.</dd></li>
+     <li><dd>Player 2 controls another snake using the arrow keys (⬆️ ⬇️ ⬅️➡️).</dd></li>
+     <li><dd>If one snake bites another, the bitten snake dies.</dd></li>
+   <li> <dd>If both snakes heads collide while eating, the snake with the smaller length dies.</dd></li>
+   </ul>
 </ul>
 
