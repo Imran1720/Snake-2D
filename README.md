@@ -1,6 +1,6 @@
 # Snake-2D
 A classic Snake game built in Unity, featuring additional mechanics like power-ups, dynamic food effects, and a competitive co-op multiplayer mode. Players compete against each other in the co-op mode, where one player’s snake can eliminate the other by biting it. This game captures the nostalgic feel of the old keypad Snake game while adding exciting new twists and challenges.
-## Features
+### Features
 <ol>
 <li><b>Movement:</b> The snake moves in all four directions (⬆️ ⬇️ ⬅️➡️).</li>
 <li><b>Screen Wrapping:</b> The snake wraps around the screen edges.</li>
@@ -15,17 +15,17 @@ A classic Snake game built in Unity, featuring additional mechanics like power-u
 <li><b>Speed Up:</b> Temporarily increases the snake's speed.</li>
 </ol>
 
-## Cooldown for Power-Ups:
+### Cooldown for Power-Ups:
 <ul>
   <li>Each power-up has a customizable cooldown (default is 3 seconds).</li>
 </ul>
 
-## Power-Up Spawning:
+### Power-Up Spawning:
 <ul>
   <li>Power-ups spawn randomly on the screen after random intervals of time.</li>
 </ul>
 
-## Food Mechanics:
+### Food Mechanics:
 <ol>
 <li><b>Mass Gainer:</b> Increases the snake’s length when consumed.</li>
 <li><b>Mass Burner:</b> Decreases the snake’s length (doesn't spawn if the snake is already small).</li>
@@ -33,7 +33,7 @@ A classic Snake game built in Unity, featuring additional mechanics like power-u
 <li><b>Length Flexibility:</b> The amount by which the snake grows or shrinks can be customized.</li>
 </ol>
 
-## Co-Op Mode:
+### Co-Op Mode:
 <ul>
   <dl>
   <dt><li>Each power-up has a customizable cooldown (default is 3 seconds).</li></dt>
@@ -45,3 +45,14 @@ A classic Snake game built in Unity, featuring additional mechanics like power-u
    </ul>
 </ul>
 
+### Scoring:
+<ol>
+<li>Eating <b>Mass Gainer</b> food increases the score.</li>
+<li>Eating <b>Mass Burner</b> food decreases the score.</li>
+</ol>
+
+### UI:
+<ol>
+<li><b>Basic UI:</b> Includes death screens, win conditions, score displays, and lobby screens.</li>
+<li><b>Game Controls:</b> Pause/Resume, Restart, and Quit buttons are implemented.</li>
+</ol>
