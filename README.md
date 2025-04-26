@@ -1,5 +1,16 @@
 # Snake-2D
 A classic Snake game built in Unity, featuring additional mechanics like power-ups, dynamic food effects, and a competitive co-op multiplayer mode. Players compete against each other in the co-op mode, where one player’s snake can eliminate the other by biting it. This game captures the nostalgic feel of the old keypad Snake game while adding exciting new twists and challenges.
+
+### Gameplay
+
+![Image](https://github.com/Imran1720/Snake-2D/blob/3942e94eb84d0f4382a42108b82121e59ed85ad3/Attachments/Solo.gif)
+
+![Image](https://github.com/Imran1720/Snake-2D/blob/3a19526cde1dc33e3bc7da5fbdc5a9936c6fc146/Attachments/Co-op.gif)
+
+### Screeshots
+
+![image](https://github.com/Imran1720/Snake-2D/blob/3942e94eb84d0f4382a42108b82121e59ed85ad3/Attachments/Screenshots.png)
+
 ### Features
 <ol>
 <li><b>Movement:</b> The snake moves in all four directions (⬆️ ⬇️ ⬅️➡️).</li>
